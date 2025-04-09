@@ -8,7 +8,11 @@ Attributs :
  - score : un nombre
  - mot ecrits : chaine de caracteres ou listes
 
-
+Idees pour le calcul du score(plus y en a plus on est heureux):
+- precision de l'utilisateur (compte du supprimer)
+- si le mot est commun ou pas
+- precion/lettre -> sur quelle lettre il se trompe le plus
+- combo/ serie de perfect
 
 
 
