@@ -4,5 +4,5 @@ Class Affichage():
 Class Banque():
 
 
-Class Affichage():
+Class Calcul():
 
