@@ -72,7 +72,7 @@ class Score():
 class Controleur():
     def __init__():
         """
-        
+        initialise le controleur
         """
     def recup_mot():
         """
