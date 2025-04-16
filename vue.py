@@ -17,4 +17,36 @@ def text_utilisateur():
     #recupère le text écrit par l'utilisateur dans la zone de texte (variable text=".....")
     #réinitialise la zone de text de l'interface pour que l'utilisateur puisse ecrire un nouveau mot
     #renvoie la variable text
-    
+
+  def demarrer_le_jeu():
+        """
+        Lorsque une lettre est pressée dans la zone de texte,
+            + le chronomètre se lance si mode de jeu = course contre la montre
+        et on lance les fonctions/méthodes chargées de l'acquisition de toutes les données tels que le nombre de frappe, de mots...
+        Les fonctions chargées de l'acquisition stockent les données dans des variables ensuite utilisées 
+        par la partie 'calcul'
+        
+        """
+        
+    def arreter_le_jeu():
+        """
+        si mode_de_jeu = course_contre_la_montre:
+            le jeu s'arrête quand le compte à rebourd arrive à 0
+        si mode_de_jeu = tolerence_zero : 
+            le jeu s'arrête dès qu'une erreur est commise
+        Envoie toutes les données stockées dans les différentes variables vers la partie 'calcul' pour avoir 
+        les résultats et statistiques du joueur sur cette partie.
+        
+        """
+    def reinitialiser():
+        """
+        fonction lier au bouton 'RESTART' qui reinitialise toutes les variables quand le bouton est pressé,
+        par exemple si le joueur a fait un mauvais départ ou veux faire une nouvelle partie
+        
+        """
+        
+    def chrono():
+        """
+        affiche un compte à rebours qui se déclenche avec la fonction 'demarrer_le_jeu'
+        
+        """
