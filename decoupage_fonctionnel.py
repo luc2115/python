@@ -1,4 +1,4 @@
-class Affichage():
+class Vue():
 
 
 class Banque():
@@ -15,7 +15,7 @@ class Banque():
 
 
 
-class Calcul():
+class Score():
     
     def __init__(self,):
          """
@@ -69,7 +69,7 @@ class Calcul():
 
 
 
-class Interface():
+class Controleur():
     def __init__():
         """
         
