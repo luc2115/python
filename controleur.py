@@ -49,5 +49,6 @@ class Interface():
 
     def recupere_temps():
         """
-        va recupérer le temps pour pouvoir faire les stats de mots par seconde
+        va recupérer le temps pour pouvoir faire les stats de mots par seconde en utilisant la classe Calcul
         """
+    
