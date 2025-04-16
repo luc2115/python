@@ -66,10 +66,6 @@ class Calcul():
         """
         le nom parle de lui meme
         """
-    #def dictionnaire_des_scores(self):
-     #   """
-      #  
-       # """
 
 
 
