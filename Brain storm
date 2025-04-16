@@ -2,7 +2,7 @@
 - Une d'affichage -> surement du tkinter 
             -> sous classe pour clavier (gestion d'evenements annexes)
 - Une de calcul 
-- Une de banque avec tous les dictionnaires
+- Une de banque avec tous les dictionnaires (rangé dans 1 grand dictionnaire)
 
 Attributs :
  - score : un nombre
