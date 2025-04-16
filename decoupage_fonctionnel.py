@@ -19,7 +19,7 @@ class Score():
     
     def __init__(self,):
          """
-         on verra
+         intialise les différentes valeurs (surement à 0)
          """
     def nb_caracteres_mot_courant(self):
         """
