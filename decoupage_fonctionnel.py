@@ -9,7 +9,7 @@ class Banque():
         
     def transforme_into_csv (self):
         """
-        transforme le fichier csv en dictionnaire de mot
+        transforme le fichier csv en listes de mot
         """
 
 
