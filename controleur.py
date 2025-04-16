@@ -46,3 +46,8 @@ class Interface():
         """
         recupere le score de combo et y associe une couleur pour l'affichage 
         """
+
+    def recupere_temps():
+        """
+        va recupérer le temps pour pouvoir faire les stats de mots par seconde
+        """
