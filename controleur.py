@@ -1,3 +1,5 @@
+import random as rd
+
 class Interface():
     def __init__(self, ):
         self.caractere_tape = 0     
@@ -38,11 +40,12 @@ class Interface():
           
         
     
-    def creation_liste_mots():
+    def creation_liste_mots(self, banque):
         """
         renvoie en fonction du type de jeu choisi, une liste de mots pour la partie à partir de la banque de données
 
         """
+        self.liste_de_mots = rd.choices(banque.liste_mot, 10)
     
     def recupere_stats():
         """
