@@ -3,17 +3,9 @@ import random as rd
 class Interface():
     def __init__(self, ):
         self.caractere_tape = 0     
-                
         
         
-    def recup_mot(self,vue):
-        """
-        recupere le mot tapé par l'utilisateur
-        """
-        self.mot_a_verifier = vue.mot_ecrit
-        
-        
-    def verification(self):
+    def verification(self, mot_a_verifier):
         """
         verifie que la reponse correspond au mot affiché et renvoie un booléen
         """
@@ -46,6 +38,8 @@ class Interface():
 
         """
         self.liste_de_mots = rd.choices(banque.liste_mot, 10)
+        
+            
     
     def recupere_stats():
         """
@@ -65,7 +59,7 @@ class Interface():
             color = 'yellow2'
         return color
         
-
+    
     def recupere_temps(self, vue):
         """
         va recupérer le temps pour pouvoir faire les stats de mots par seconde en utilisant la classe Calcul
