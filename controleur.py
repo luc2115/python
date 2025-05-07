@@ -1,7 +1,8 @@
 class Interface():
     def __init__(self, ):
-        """
-        """     
+        self.caractere_tape = 0     
+                
+        
         
     def recup_mot(self,vue):
         """
@@ -20,17 +21,22 @@ class Interface():
             reponse = False
         return reponse
         
-    def backspace():
+        
+        
+    def backspace(self, vue):
         """
         renvoie un booléen si la touche backspace est utilisé
 
         """
+        
     
-    def type_de_jeu_choisi(self, interface):
+    def type_de_jeu_choisi(self, vue):
         """
         recupère le type de jeu choisi par le joueur
         """
-        self.type_de_jeu = interface.type_de_jeu
+        self.type_de_jeu = vue.type_de_jeu
+          
+        
     
     def creation_liste_mots():
         """
@@ -44,20 +50,21 @@ class Interface():
 
         """
     
-    def recupere_streak(self, score):
+    def recupere_streak(self, calcul):
         """
         recupere le score de combo et y associe une couleur pour l'affichage 
         """
         liste_couleur = ['red','orange red', 'orange', 'light salmon', 'sandyy brown', 'dark goldenrod', 'dark khaki', 'yellow green', 'green yellow', 'lime green', 'medium sea green', 'sea green', 'light sea green', 'dark turquoise', 'deep sky blue', 'blue', 'medium blue', 'midnight blue', 'purple4', 'purple1','maroon1']
-        streak = score.streak
+        streak = calcul.streak
         if streak< len(liste_couleur):
             color = liste_couleur[streak]
         else:
             color = 'yellow2'
         return color
+        
 
-    def recupere_temps():
+    def recupere_temps(self, vue):
         """
         va recupérer le temps pour pouvoir faire les stats de mots par seconde en utilisant la classe Calcul
         """
-    
+        self.temps_de_jeu = vue.temps
