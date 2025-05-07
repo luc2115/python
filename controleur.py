@@ -20,12 +20,6 @@ class Interface():
             reponse = False
         return reponse
         
-    def compte_lettre():
-        """
-        compte le nombre de caractere du mot tapé qu'il soit juste ou non
-        
-        """
-        
     def backspace():
         """
         renvoie un booléen si la touche backspace est utilisé
@@ -49,10 +43,17 @@ class Interface():
 
         """
     
-    def recupere_streak():
+    def recupere_streak(self, score):
         """
         recupere le score de combo et y associe une couleur pour l'affichage 
         """
+        liste_couleur = ['red','orange red', 'orange', 'light salmon', 'sandyy brown', 'dark goldenrod', 'dark khaki', 'yellow green', 'green yellow', 'lime green', 'medium sea green', 'sea green', 'light sea green', 'dark turquoise', 'deep sky blue', 'blue', 'medium blue', 'midnight blue', 'purple4', 'purple1','maroon1']
+        streak = score.streak
+        if streak< len(liste_couleur):
+            color = liste_couleur[streak]
+        else:
+            color = 'yellow2'
+        return color
 
     def recupere_temps():
         """
