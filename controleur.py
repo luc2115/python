@@ -1,17 +1,24 @@
 class Interface():
-    def __init__():
+    def __init__(self, ):
         """
+        """     
         
-        """
-    def recup_mot():
+    def recup_mot(self,vue):
         """
         recupere le mot tapé par l'utilisateur
         """
+        self.mot_a_verifier = vue.mot_ecrit
         
-    def verification():
+        
+    def verification(self):
         """
         verifie que la reponse correspond au mot affiché et renvoie un booléen
         """
+        if self.mot_a_taper == self.mot_a_verifier:
+            reponse = True
+        else:
+            reponse = False
+        return reponse
         
     def compte_lettre():
         """
