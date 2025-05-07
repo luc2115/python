@@ -26,10 +26,11 @@ class Interface():
 
         """
     
-    def type_de_jeu_choisi():
+    def type_de_jeu_choisi(self, interface):
         """
         recupère le type de jeu choisi par le joueur
         """
+        self.type_de_jeu = interface.type_de_jeu
     
     def creation_liste_mots():
         """
