@@ -1,3 +1,11 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Created on Wed May  7 14:55:40 2025
+
+@author: blucas
+"""
+
 import tkinter as tk
 from tkinter import filedialog, messagebox
 from controleur import Controleur
@@ -54,18 +62,7 @@ class Vue(tk.Tk):
         couleur = self.controlleur.verification(mot_utilisateur)
         self.config(bg=couleur)
 
-    def couleur_streak(self, streak):
-        if streak >= 5:
-            return "#007FFF"
-        elif streak >= 4:
-            return "#22ff77"
-        elif streak >= 3:
-            return "#33ff77"
-        elif streak >= 2:
-            return "#44ff77"
-        elif streak >= 1:
-            return "#55ff55"
-        return "white"
+
 
     def start_timer(self):
         self.time_left = self.controlleur.duree
