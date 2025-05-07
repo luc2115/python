@@ -28,7 +28,7 @@ class Controleur:
         mot_attendu = self.liste_mots[self.index_mot]
         if mot_utilisateur.strip() == mot_attendu:
             self.score.mot_reussi(mot_utilisateur)
-            couleur = self.recupere_streak(self.score.streak)
+            couleur = self.recupere_streak(self.score)
         else:
             self.score.mot_rate()
             couleur = "red"
