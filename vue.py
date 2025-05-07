@@ -57,3 +57,26 @@ class Affichage():
         affiche un compte à rebours qui se déclenche avec la fonction 'demarrer_le_jeu'
         
         """
+
+
+
+
+from PIL import Image, ImageTk
+
+# Création de la fenêtre principale
+fenetre = tk.Tk()
+fenetre.title("Image en arrière-plan")
+
+# Chargement de l'image
+image = Image.open("Capture d'écran 2025-04-09 173208.png")
+photo = ImageTk.PhotoImage(image)
+
+# Création du Canvas
+canvas = tk.Canvas(fenetre, width=image.width, height=image.height)
+canvas.pack(fill="both", expand=True)
+
+# Ajout de l'image en arrière-plan
+canvas.create_image(0, 0, image=photo, anchor="nw")
+
+# Boucle principale
+fenetre.mainloop()
