@@ -68,7 +68,7 @@ fenetre = tk.Tk()
 fenetre.title("Image en arrière-plan")
 
 # Chargement de l'image
-image = Image.open("Capture d'écran 2025-04-09 173208.png")
+image = Image.open("motif-alphabet-colore_608527-2332.avif")
 photo = ImageTk.PhotoImage(image)
 
 # Création du Canvas
