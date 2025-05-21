@@ -6,7 +6,7 @@ class Vue(tk.Tk):
     def __init__(self):
         
         super().__init__()
-        self.title("Jeu de Dactylographie")
+        self.title("DAKTYLOGRAF")
         self.geometry("600x400")
         self.controlleur = None
         self.time_left = 0
@@ -55,6 +55,9 @@ class Vue(tk.Tk):
         self.controlleur.start_game()
 
     def afficher_mot(self, mot):
+        """
+        affiche le nouveau mot et efface tout ce qui était écrit dans le cadre de saisie des mots
+        """
         self.label_mot.config(text=mot)
         self.saisie.delete(0, tk.END)
 
