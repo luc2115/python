@@ -71,6 +71,9 @@ class Score:
         return 0.25*nombre_caractere_spe + 0,75* nombre_accent_cir
 
     def precision(self):
+        """
+        renvoie un indicateur de précision, en fonction du nombre de backspace utilisés
+        """
         ratio_erreur = 0 
         if self.caracteres_total != 0 :
             ratio_erreur = (self.backspaces / self.caracteres_total * 100)
