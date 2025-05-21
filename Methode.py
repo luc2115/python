@@ -42,7 +42,7 @@ class Score:
         elif self.streak >= 4 :
             bonus = 2.0
         elif self.streak >= 3:
-            bonus = 1;5
+            bonus = 1.5
         elif self.streak >= 2:
             bonus = 1.25
         elif self.streak >= 1:
