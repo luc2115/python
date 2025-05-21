@@ -1,11 +1,3 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-"""
-Created on Wed May  7 14:55:40 2025
-
-@author: blucas
-"""
-
 import tkinter as tk
 from tkinter import filedialog, messagebox
 from controleur import Controleur
