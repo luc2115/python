@@ -12,6 +12,7 @@ from controleur import Controleur
 
 class Vue(tk.Tk):
     def __init__(self):
+        
         super().__init__()
         self.title("Jeu de Dactylographie")
         self.geometry("600x400")
@@ -21,6 +22,10 @@ class Vue(tk.Tk):
         self.accueil()
 
     def accueil(self):
+        """ 
+        interface d'accueil qui propose de choisir un liste de mots avec laquelle jouer (dans un fichier CSV), et de définir la durée de la partie
+        """
+        
         self.fichier_var = tk.StringVar()
         tk.Button(self, text="Choisir fichier CSV", command=self.choisir_fichier).pack(pady=5)
         tk.Entry(self, textvariable=self.fichier_var).pack()
@@ -32,10 +37,14 @@ class Vue(tk.Tk):
         tk.Button(self, text="Démarrer", command=self.lancer_jeu).pack(pady=10)
 
     def choisir_fichier(self):
+        """
+        permet de sélectionner les fichiers qui contiennent les listes de mots pour la partie
+        """
         fichier = filedialog.askopenfilename(filetypes=[("CSV files", "*.csv")])
         self.fichier_var.set(fichier)
 
     def lancer_jeu(self):
+        
         if not self.fichier_var.get():
             messagebox.showwarning("Attention", "Choisissez un fichier CSV.")
             return
@@ -58,6 +67,10 @@ class Vue(tk.Tk):
         self.saisie.delete(0, tk.END)
 
     def valider(self, event):
+        """
+        change la couleur du background en fonction de la valeur qui a été renvoyée par les autres fonctions lors de la vérifiaction du mot
+        """
+        
         mot_utilisateur = self.saisie.get().strip()
         couleur = self.controlleur.verification(mot_utilisateur)
         self.config(bg=couleur)
@@ -65,12 +78,19 @@ class Vue(tk.Tk):
 
 
     def start_timer(self):
+        """
+        affiche le chrono en temps réel
+        """
         self.time_left = self.controlleur.duree
         self.timer_label = tk.Label(self, text=f"Temps restant : {self.time_left}s", font=("Helvetica", 14))
         self.timer_label.pack()
         self.update_timer()
 
     def update_timer(self):
+        """
+        met a jour la valeur du temps, et met fin à la partie si le temps est écoulé
+        """
+        
         self.time_left -= 1
         self.timer_label.config(text=f"Temps restant : {self.time_left}s")
         if self.time_left > 0:
@@ -79,6 +99,9 @@ class Vue(tk.Tk):
             self.fin_partie()
 
     def fin_partie(self):
+        """
+        affiche toutes les stats calculées à la fin de la aprtie
+        """
         stats = self.controlleur.stats()
         self.clear()
         tk.Label(self, text="Fin de partie !", font=("Helvetica", 24)).pack(pady=10)
@@ -86,6 +109,9 @@ class Vue(tk.Tk):
             tk.Label(self, text=f"{key} : {value}", font=("Helvetica", 16)).pack(pady=2)
 
     def clear(self):
+        """
+        enlève tous les widget ouverts
+        """
         for widget in self.winfo_children():
             widget.destroy()
 
