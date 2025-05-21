@@ -21,10 +21,18 @@ class Controleur:
         self.timer_id = None
 
     def start_game(self):
+        """
+        lance la parite avec le chrono et le premier mot
+
+        """
         self.vue.afficher_mot(self.liste_mots[self.index_mot])
         self.vue.lancer_timer(self.duree)
 
     def verification(self, mot_utilisateur):
+        """
+        verifie que la reponse correspond au mot affiché et renvoie la couleur a afficher dans le background en fonction du mot, s'il est juste ou non
+        """
+
         mot_attendu = self.liste_mots[self.index_mot]
         if mot_utilisateur.strip() == mot_attendu:
             self.score.mot_reussi(mot_utilisateur)
@@ -40,9 +48,18 @@ class Controleur:
         return couleur
 
     def backspace(self):
+        """
+        récupère le nombre de fois que la touche backspace est pressée
+
+        """
         self.score.compte_backspace()
 
     def stats(self):
+        """
+        récupère différentes stats du joueur pour les afficher ?
+        """
+
+        
         return {
             "points": self.score.points,
             "précision": f"{self.score.precision():.2f}%",
@@ -50,8 +67,11 @@ class Controleur:
             "mots ratés": self.score.mots_rates
         }
     def recupere_streak(self, score):
+        
        """
-       recupere le score de combo et y associe une couleur pour l'affichage 
+       
+       recupere le nombre de mots correct d'affilée et y associe une couleur pour l'affichage 
+       
        """
        liste_couleur = ['red','orange red', 'orange', 'light salmon', 'sandyy brown', 'dark goldenrod', 'dark khaki', 'yellow green', 'green yellow', 'lime green', 'medium sea green', 'sea green', 'light sea green', 'dark turquoise', 'deep sky blue', 'blue', 'medium blue', 'midnight blue', 'purple4', 'purple1','maroon1']
        streak = score.streak
