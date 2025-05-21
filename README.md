@@ -1,2 +1,2 @@
-REMPLACER POUR EXPLICATION INSTALLATION
+### Ouvrir le fichier main.py
 
