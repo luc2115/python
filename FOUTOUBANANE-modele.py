@@ -16,14 +16,14 @@ class Score:
 
     def compte_backspace(self):
         """
-        un compteur qui fait +1 dès que le joueur fait un backspace, et réinitialise la streak du joueur
+        un compteur qui fait +1 dès que le joueur fait un backspace, et réinitialise la streak du joueur quand le joueur fais un backspace
         """
         self.backspaces += 1
         self.streak = 0
 
     def mot_reussi(self, mot):
         """
-        fonction qui augmente la streak et compte le nombre de mots réussis, qui compte les points du joueur
+        augmente la streak et compte le nombre de mots réussis, qui compte les points du joueur si le mot est correct
         """
         self.streak += 1
         self.mots_reussis += 1
@@ -32,10 +32,15 @@ class Score:
         self.compte_caractere(mot)
 
     def mot_rate(self, mot):
+        """
+        compte les mots ratés et réinitialise la streak du joueur si le mot est raté
+        """
+        
         self.streak = 0
         self.mots_rates += 1
 
     def calcul_bonus(self):
+        
         if self.streak >= 3:
             return 2.0
         elif self.streak >= 2:
