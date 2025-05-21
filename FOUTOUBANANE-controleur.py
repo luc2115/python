@@ -13,6 +13,9 @@ class Controleur:
         self.timer_id = None
 
     def start_game(self):
+        """
+        affiche le premier mot de la partie et lance le chrono à la valuer de départ souhaitée
+        """
         
         self.vue.afficher_mot(self.liste_mots[self.index_mot])
         self.vue.lancer_timer(self.duree)
