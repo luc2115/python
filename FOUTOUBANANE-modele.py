@@ -43,13 +43,19 @@ class Score:
          """ 
          renvoie le bonus relatif a la streak du joueur
          """
-        if self.streak >= 3:
-            return 2.0
+        if self.streak >= 5 : 
+            bonus = 2.5
+        elif self.streak >= 4 :
+            bonus = 2.0
+        elif self.streak >= 3:
+            bonus = 1.5
         elif self.streak >= 2:
-            return 1.25
+            bonus = 1.25
         elif self.streak >= 1:
-            return 1.10
-        return 1.0
+            bonus = 1.10
+        else :
+            bonus = 1.0
+        return bonus
     
     def bonus_caractere(self,mot):
         """
@@ -65,6 +71,7 @@ class Score:
         return 0.25*nombre_caractere_spe + 0,75* nombre_accent_cir
 
     def precision(self):
-        if self.caracteres_total == 0:
-            return 100.0
-        return 100 - (self.backspaces / self.caracteres_total * 100)
+        ratio_erreur = 0 
+        if self.caracteres_total != 0 :
+            ratio_erreur = (self.backspaces / self.caracteres_total * 100)
+        return 100 - ratio_erreur
