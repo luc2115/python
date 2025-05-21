@@ -52,9 +52,10 @@ class Score:
         return bonus
 
     def precision(self):
-        if self.caracteres_total == 0:
-            return 100.0
-        return 100 - (self.backspaces / self.caracteres_total * 100)
+        ratio_erreur = 0 
+        if self.caracteres_total != 0 :
+            ratio_erreur = (self.backspaces / self.caracteres_total * 100)
+        return 100 - ratio_erreur
 
 class Banque():
     def __init__(self,fichier_csv):
