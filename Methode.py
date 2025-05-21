@@ -1,54 +1,60 @@
-class Score():
-    
-    def __init__(self,):
-         """
-         on verra
-         """
-    def nb_caracteres_mot_courant(self):
-        """
-        calcule le nb de caracteres d'un mot'
-        """
-    def compte_caracteres(self):
-        """
-        Un compteur qui fait +1 pour chaque caractère des mots
+class Score:
+    def __init__(self):
+        self.points = 0
+        self.caracteres_total = 0
+        self.backspaces = 0
+        self.streak = 0
+        self.mots_reussis = 0
+        self.mots_rates = 0
 
-        """
-    def compte_back_space(self):
-        """
-        un compteur qui fait +1 dès que le joueur fait un backspace
-        """
-    def streak(self):
-        """
-        Combien de bons mots sans avoir fait d'erreurs (un backspace remet le compteur à 0)
-        """
-    def bonus(self):
-        """
-        Prend en entrée la streak et donne des points en plus en fonction 
-        Streak à 5 mots, +10% points
-        Streak à 10 mots, +20% points
-        Le 20ème mot bien écrit compte double puis on reste à +25% après
-        """
-    def point_du_mot(self):
-        """
-        Utilise bonus, le nb_de_caractères_du_mot
-        et associe, si le mot est
-        """
-    def compteur_de_points(self):
-        """
-        Compte les points !!
-        """
-    def calcul_precision(self):
-        """
-        100 - compte_back_space/Nombre de caractères
-        """
-    def mots_reussis(self):
-        """
-        le nom parle de lui meme
-        """
-    def mots_rates(self):
-        """
-        le nom parle de lui meme
-        """
+    def compte_caractere(self, mot):
+        self.caracteres_total += len(mot)
+
+    def compte_backspace(self):
+        self.backspaces += 1
+        self.streak = 0
+
+    def mot_reussi(self, mot):
+        self.streak += 1
+        self.mots_reussis += 1
+        bonus = self.calcul_bonus() + self.bonus_caractere(mot)
+        self.points += len(mot) * bonus 
+        self.compte_caractere(mot)
+
+    def bonus_caractere(self,mot):
+        nombre_caractere_spe = 0
+        nombre_accent_cir = 0
+        for lettre in mot : 
+            if lettre == "é" or lettre == "è" or lettre == "ù" or lettre == "à" or lettre == "ç" :
+                nombre_caractere_spe += 1
+            if lettre =="ê" or lettre == "î" or lettre == "ô" or lettre == "â" or lettre == "û":
+                nombre_accent_cir += 1
+        return 0.25*nombre_caractere_spe + 0,75* nombre_accent_cir
+                
+    
+    def mot_rate(self, mot):
+        self.streak = 0
+        self.mots_rates += 1
+
+    def calcul_bonus(self):
+        if self.streak >= 5 : 
+            bonus = 2.5
+        elif self.streak >= 4 :
+            bonus = 2.0
+        elif self.streak >= 3:
+            bonus = 1;5
+        elif self.streak >= 2:
+            bonus = 1.25
+        elif self.streak >= 1:
+            bonus = 1.10
+        else :
+            bonus = 1.0
+        return bonus
+
+    def precision(self):
+        if self.caracteres_total == 0:
+            return 100.0
+        return 100 - (self.backspaces / self.caracteres_total * 100)
 
 class Banque():
     def __init__(self,fichier_csv):
