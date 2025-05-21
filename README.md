@@ -1,3 +1,8 @@
+## Concept du jeu 
+Le jeu à pour objectif de vous entrainer à taper de manière juste plus rapidement que vous ne le faites déjà. Cela vous permettra ainsi de développer vos capacités numériques et ainsi de gagner du temps lors de la rédaction des rapports, de mails etc.....
+
+## Fonctionnement du jeu 
+
 ### 1.Ouvrir le fichier main.py
 
 ### 2.Choisir un mode de jeu 
