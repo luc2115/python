@@ -40,6 +40,9 @@ class Score:
         self.mots_rates += 1
 
      def calcul_bonus(self):
+         """ 
+         renvoie le bonus relatif a la streak du joueur
+         """
         if self.streak >= 3:
             return 2.0
         elif self.streak >= 2:
