@@ -13,10 +13,7 @@ class Controleur:
         self.timer_id = None
 
     def start_game(self):
-        """
-        lance la parite avec le chrono et le premier mot
-
-        """
+        
         self.vue.afficher_mot(self.liste_mots[self.index_mot])
         self.vue.lancer_timer(self.duree)
 
@@ -48,7 +45,7 @@ class Controleur:
 
     def stats(self):
         """
-        récupère différentes stats du joueur pour les afficher ?
+        renvoie différentes stats du joueur sous la forme d'un dictionnnaire
         """
 
         
@@ -62,7 +59,7 @@ class Controleur:
         
        """
        
-       recupere le nombre de mots correct d'affilée et y associe une couleur pour l'affichage 
+       recupere la valeur de la streak et renvoie une couleur associée
        
        """
        liste_couleur = ['red','orange red', 'orange', 'light salmon', 'sandyy brown', 'dark goldenrod', 'dark khaki', 'yellow green', 'green yellow', 'lime green', 'medium sea green', 'sea green', 'light sea green', 'dark turquoise', 'deep sky blue', 'blue', 'medium blue', 'midnight blue', 'purple4', 'purple1','maroon1']
