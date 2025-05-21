@@ -39,8 +39,7 @@ class Score:
         self.streak = 0
         self.mots_rates += 1
 
-    def calcul_bonus(self):
-        
+     def calcul_bonus(self):
         if self.streak >= 3:
             return 2.0
         elif self.streak >= 2:
@@ -48,6 +47,19 @@ class Score:
         elif self.streak >= 1:
             return 1.10
         return 1.0
+    
+    def bonus_caractere(self,mot):
+        """
+        Calcul de la seconde partie du bonus, basée ce coup-ci sur la difficulté des caractères à taper
+        """
+        nombre_caractere_spe = 0 
+        nombre_accent_cir = 0
+        for lettre in mot : 
+            if lettre == "é" or lettre == "è" or lettre == "ù" or lettre == "à" or lettre == "ç" :
+                nombre_caractere_spe += 1
+            if lettre =="ê" or lettre == "î" or lettre == "ô" or lettre == "â" or lettre == "û":
+                nombre_accent_cir += 1
+        return 0.25*nombre_caractere_spe + 0,75* nombre_accent_cir
 
     def precision(self):
         if self.caracteres_total == 0:
