@@ -1,6 +1,9 @@
 import csv
 import random
 
+
+
+####Fait avec IA 
 class Banque:
     def __init__(self, fichier_csv):
         self.fichier_csv = fichier_csv
