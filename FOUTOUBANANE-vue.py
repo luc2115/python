@@ -1,4 +1,3 @@
-
 import tkinter as tk
 from tkinter import filedialog, messagebox
 from controleur import Controleur
@@ -63,12 +62,7 @@ class Vue(tk.Tk):
         self.bouton_jouer = tk.Button(self.conteneur, text="Jouer", command=self.lancer_jeu, bg="yellow")
         self.bouton_jouer.pack(pady=20)
 
-    def choisir_fichier(self):
-        """
-        permet de sélectionner les fichiers qui contiennent les listes de mots pour la partie
-        """
-        fichier = filedialog.askopenfilename(filetypes=[("CSV files", "*.csv")])
-        self.fichier_var.set(fichier)
+    
 
     def lancer_jeu(self):
         
@@ -150,8 +144,7 @@ class Vue(tk.Tk):
         for widget in self.winfo_children():
             widget.destroy()
 
-    def lancer_timer(self, duree):
-        pass  # déjà géré dans start_timer
+        
 
 
 class Fenetre_jeu(tk.Toplevel):
@@ -171,8 +164,20 @@ class Fenetre_jeu(tk.Toplevel):
         bouton_resultats.pack(pady=5)
         bouton_resultats.bind("<Button-1>", lambda event: self.ouvrir_resultats())
         
+        bouton_fichier = tk.Button(self.conteneur, text="Choisi Ton Dictionnaire", command=self.choisir_fichier, bg="purple", font=("Helvetica", 12))
+        bouton_fichier.pack(pady=20)
+        
         bouton_changer_mode = tk.Button(self.conteneur, text="Retour", command=self.changer_mode, bg="orange", font=("Helvetica", 12), command = self.changer_mode())
         bouton_changer_mode.pack(pady=20)
+        
+        
+        
+    def choisir_fichier(self):
+        """
+        permet de sélectionner les fichiers qui contiennent les listes de mots pour la partie
+        """
+        fichier = filedialog.askopenfilename(filetypes=[("CSV files", "*.csv")])
+        self.fichier_var.set(fichier)
 
         
     def retour_accueil(self):
