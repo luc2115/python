@@ -1,3 +1,4 @@
+
 import tkinter as tk
 from tkinter import filedialog, messagebox
 from controleur import Controleur
@@ -6,10 +7,10 @@ class Vue(tk.Tk):
     def __init__(self):
         
        super().__init__()
-        self.title("Accueil")
-        self.geometry("1200x500")
-        self.controlleur = None
-        self.accueil()
+       self.title("Accueil")
+       self.geometry("1200x500")
+       self.controlleur = None
+       self.accueil()
 
     def accueil(self):
         """ 
@@ -111,8 +112,6 @@ class Vue(tk.Tk):
         couleur = self.controlleur.verification(mot_utilisateur)
         self.config(bg=couleur)
 
-
-
     def start_timer(self):
         """
         affiche le chrono en temps réel
@@ -172,25 +171,26 @@ class Fenetre_jeu(tk.Toplevel):
         bouton_resultats.pack(pady=5)
         bouton_resultats.bind("<Button-1>", lambda event: self.ouvrir_resultats())
         
-        bouton_changer_mode = tk.Button(self.conteneur, text="Changer de mode de jeu", command=self.changer_mode, bg="orange", font=("Helvetica", 12), command = self.changer_mode())
+        bouton_changer_mode = tk.Button(self.conteneur, text="Retour", command=self.changer_mode, bg="orange", font=("Helvetica", 12), command = self.changer_mode())
         bouton_changer_mode.pack(pady=20)
 
         
-    def changer_mode(self):
+    def retour_accueil(self):
         self.destroy()
         self.master.deiconify()
 
 
     def ouvrir_resultats(self):
         self.destroy()
-        Fenetre_Resultats(self.master, "zero")
+        Fenetre_Resultats(self.master, self.mode)
 
 
 class Fenetre_Course_Contre_La_Montre(Fenetre_jeu):
     def __init__(self, master):
+        super().__init__(master)
+        self.mode = "course"
         self.title("Course contre la montre")
-        
-
+    
         label = tk.Label(self.conteneur, text="Mode : Course contre la montre", font=("Helvetica", 20, "bold"), fg="dark blue", bg="light blue")
         label.pack(pady=(0, 20))
         
@@ -198,8 +198,8 @@ class Fenetre_Course_Contre_La_Montre(Fenetre_jeu):
 class Fenetre_Tolerance_Zero(Fenetre_jeu):
     def __init__(self, master):
         super().__init__(master)
+        self.mode = "zero"
         self.title("Tolérance Zéro")
-
         label = tk.Label(self.conteneur, text="Mode : Tolérance Zéro ", font=("Helvetica", 20, "bold"), fg="red", bg="light blue")
         label.pack(pady=(0, 20))
  
