@@ -154,72 +154,58 @@ class Vue(tk.Tk):
     def lancer_timer(self, duree):
         pass  # déjà géré dans start_timer
 
-class Fenetre_Course_Contre_La_Montre(tk.Toplevel):
-    def __init__(self, master):
+class Fenetre_jeu(tk.Toplevel):
+    def __init__(self,master):
         super().__init__(master)
         self.master = master
-        self.title("Course contre la montre")
         self.geometry("1200x500")
         self.configure(bg="light blue")
-
+        
         self.conteneur = tk.Frame(self, bg="light blue")
         self.conteneur.place(relx=0.5, rely=0.5, anchor="center")
-
-        label = tk.Label(self.conteneur, text="Mode : Course contre la montre", font=("Helvetica", 20, "bold"), fg="dark blue", bg="light blue")
-        label.pack(pady=(0, 20))
-
+        
         bouton_jouer = tk.Button(self.conteneur, text="Jouer", bg="yellow", font=("Helvetica", 12, "bold"))
         bouton_jouer.pack(pady=5)
 
         bouton_resultats = tk.Button(self.conteneur, text="Montrer les résultats", bg="light green", font=("Helvetica", 12))
         bouton_resultats.pack(pady=5)
         bouton_resultats.bind("<Button-1>", lambda event: self.ouvrir_resultats())
-
-        # ✅ Ajout du lien avec la fonction changer_mode
+        
         bouton_changer_mode = tk.Button(self.conteneur, text="Changer de mode de jeu", command=self.changer_mode, bg="orange", font=("Helvetica", 12))
         bouton_changer_mode.pack(pady=20)
 
+        
     def changer_mode(self):
         self.destroy()
         self.master.deiconify()
 
-    def ouvrir_resultats(self):
-        self.destroy()
-        Fenetre_Resultats(self.master, "course")
-
-
-class Fenetre_Tolerance_Zero(tk.Toplevel):
-    def __init__(self, master):
-        super().__init__(master)
-        self.master = master
-        self.title("Tolérance Zéro")
-        self.geometry("1200x500")
-        self.configure(bg="light blue")
-
-        self.conteneur = tk.Frame(self, bg="light blue")
-        self.conteneur.place(relx=0.5, rely=0.5, anchor="center")
-
-        label = tk.Label(self.conteneur, text="Mode : Tolérance Zéro ", font=("Helvetica", 20, "bold"), fg="red", bg="light blue")
-        label.pack(pady=(0, 20))
-
-        bouton_jouer = tk.Button(self.conteneur, text="Jouer", bg="yellow", font=("Helvetica", 12, "bold"))
-        bouton_jouer.pack(pady=5)
-
-        bouton_resultats = tk.Button(self.conteneur, text="Montrer les résultats", bg="light green", font=("Helvetica", 12))
-        bouton_resultats.pack(pady=5)
-        bouton_resultats.bind("<Button-1>", lambda event: self.ouvrir_resultats())
-
-        # Ajout du lien avec la fonction changer_mode
-        bouton_changer_mode = tk.Button(self.conteneur, text="Changer de mode de jeu", command=self.changer_mode, bg="orange", font=("Helvetica", 12))
-        bouton_changer_mode.pack(pady=20)
-
-    def changer_mode(self):
-        self.destroy()
-        self.master.deiconify()
 
     def ouvrir_resultats(self):
         self.destroy()
         Fenetre_Resultats(self.master, "zero")
+
+
+class Fenetre_Course_Contre_La_Montre(Fenetre_jeu):
+    def __init__(self, master):
+        self.title("Course contre la montre")
+        
+
+        label = tk.Label(self.conteneur, text="Mode : Course contre la montre", font=("Helvetica", 20, "bold"), fg="dark blue", bg="light blue")
+        label.pack(pady=(0, 20))
+
+        
+        # Ajout du lien avec la fonction changer_mode
+        
+
+class Fenetre_Tolerance_Zero(Fenetre_jeu):
+    def __init__(self, master):
+        super().__init__(master)
+        self.title("Tolérance Zéro")
+
+        label = tk.Label(self.conteneur, text="Mode : Tolérance Zéro ", font=("Helvetica", 20, "bold"), fg="red", bg="light blue")
+        label.pack(pady=(0, 20))
+ 
+        # Ajout du lien avec la fonction changer_mode
 
 
 class Fenetre_Resultats(tk.Toplevel):
