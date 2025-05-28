@@ -39,24 +39,24 @@ class Score:
         self.streak = 0
         self.mots_rates += 1
 
-     def calcul_bonus(self):
-         """ 
-         renvoie le bonus relatif a la streak du joueur
-         """
+    def calcul_bonus(self):
+        """
+        Calcul le bonus en fonction du combo 
+        """
         if self.streak >= 5 : 
-            bonus = 2.5
+             bonus = 2.5
         elif self.streak >= 4 :
-            bonus = 2.0
+             bonus = 2.0
         elif self.streak >= 3:
-            bonus = 1.5
+             bonus = 1.5
         elif self.streak >= 2:
-            bonus = 1.25
+             bonus = 1.25
         elif self.streak >= 1:
-            bonus = 1.10
+             bonus = 1.10
         else :
             bonus = 1.0
         return bonus
-    
+  
     def bonus_caractere(self,mot):
         """
         Calcul de la seconde partie du bonus, basée ce coup-ci sur la difficulté des caractères à taper
