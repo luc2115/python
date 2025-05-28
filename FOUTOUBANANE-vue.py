@@ -9,8 +9,6 @@ class Vue(tk.Tk):
         self.title("Accueil")
         self.geometry("1200x500")
         self.controlleur = None
-        self.time_left = 0
-
         self.accueil()
 
     def accueil(self):
@@ -82,6 +80,7 @@ class Vue(tk.Tk):
             Fenetre_Course_Contre_La_Montre(self)
         elif mode == "mode2":
             Fenetre_Tolerance_Zero(self)
+            
         self.controlleur = Controleur(self, self.fichier_var.get(), self.duree_var.get())
         self.clear()
         self.label_mot = tk.Label(self, text="", font=("Impact", 24))
@@ -200,7 +199,7 @@ class Fenetre_Tolerance_Zero(tk.Toplevel):
         self.conteneur = tk.Frame(self, bg="light blue")
         self.conteneur.place(relx=0.5, rely=0.5, anchor="center")
 
-        label = tk.Label(self.conteneur, text="Mode : Tolérance Zéro ⚠️", font=("Helvetica", 20, "bold"), fg="red", bg="light blue")
+        label = tk.Label(self.conteneur, text="Mode : Tolérance Zéro ", font=("Helvetica", 20, "bold"), fg="red", bg="light blue")
         label.pack(pady=(0, 20))
 
         bouton_jouer = tk.Button(self.conteneur, text="Jouer", bg="yellow", font=("Helvetica", 12, "bold"))
@@ -210,7 +209,7 @@ class Fenetre_Tolerance_Zero(tk.Toplevel):
         bouton_resultats.pack(pady=5)
         bouton_resultats.bind("<Button-1>", lambda event: self.ouvrir_resultats())
 
-        # ✅ Ajout du lien avec la fonction changer_mode
+        # Ajout du lien avec la fonction changer_mode
         bouton_changer_mode = tk.Button(self.conteneur, text="Changer de mode de jeu", command=self.changer_mode, bg="orange", font=("Helvetica", 12))
         bouton_changer_mode.pack(pady=20)
 
