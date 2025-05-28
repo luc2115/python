@@ -10,6 +10,7 @@ class Vue(tk.Tk):
        self.geometry("1200x500")
        self.controlleur = None
        self.accueil()
+       self.fichier_var = None
 
     def accueil(self):
         """ 
@@ -59,23 +60,21 @@ class Vue(tk.Tk):
         self.radio1.grid(row=0, column=0, padx=20)
         self.radio2.grid(row=0, column=1, padx=20)
 
-        self.bouton_jouer = tk.Button(self.conteneur, text="Jouer", command=self.lancer_jeu, bg="yellow")
+        self.bouton_jouer = tk.Button(self.conteneur, text="Jouer", command=self.acces_fenetre_jeu, bg="yellow")
         self.bouton_jouer.pack(pady=20)
 
-    
-
-    def lancer_jeu(self):
-        
-        if not self.fichier_var.get():
-            messagebox.showwarning("Attention", "Choisissez un fichier CSV.")
-            return
+    def acces_fenetre_jeu(self):
         mode = self.jouer.get()
         self.withdraw()
         if mode == "mode1":
             Fenetre_Course_Contre_La_Montre(self)
         elif mode == "mode2":
             Fenetre_Tolerance_Zero(self)
-            
+
+    def lancer_jeu(self):
+        if not self.fichier_var.get():
+            messagebox.showwarning("Attention", "Choisissez un fichier CSV.")
+            return
         self.controlleur = Controleur(self, self.fichier_var.get(), self.duree_var.get())
         self.clear()
         self.label_mot = tk.Label(self, text="", font=("Impact", 24))
@@ -157,7 +156,7 @@ class Fenetre_jeu(tk.Toplevel):
         self.conteneur = tk.Frame(self, bg="light blue")
         self.conteneur.place(relx=0.5, rely=0.5, anchor="center")
         
-        bouton_jouer = tk.Button(self.conteneur, text="Jouer", bg="yellow", font=("Helvetica", 12, "bold"), command = self.jouer())
+        bouton_jouer = tk.Button(self.conteneur, text="Jouer", bg="yellow", font=("Helvetica", 12, "bold"), command = self.lancer_jeu)
         bouton_jouer.pack(pady=5)
 
         bouton_resultats = tk.Button(self.conteneur, text="Montrer les résultats", bg="light green", font=("Helvetica", 12))
@@ -167,7 +166,7 @@ class Fenetre_jeu(tk.Toplevel):
         bouton_fichier = tk.Button(self.conteneur, text="Choisi Ton Dictionnaire", command=self.choisir_fichier, bg="purple", font=("Helvetica", 12))
         bouton_fichier.pack(pady=20)
         
-        bouton_changer_mode = tk.Button(self.conteneur, text="Retour", command=self.changer_mode, bg="orange", font=("Helvetica", 12), command = self.changer_mode())
+        bouton_changer_mode = tk.Button(self.conteneur, text="Retour", command=self.changer_mode, bg="orange", font=("Helvetica", 12))
         bouton_changer_mode.pack(pady=20)
         
         
