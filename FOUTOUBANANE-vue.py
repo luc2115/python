@@ -154,7 +154,6 @@ class Vue(tk.Tk):
     def lancer_timer(self, duree):
         pass  # déjà géré dans start_timer
 
-import tk as tk
 
 class Fenetre_jeu(tk.Toplevel):
     def __init__(self,master):
