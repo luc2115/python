@@ -12,4 +12,5 @@ Le jeu à pour objectif de vous entrainer à taper de manière juste plus rapide
 ### 3.Choisir son texte 
     Parmis les fichiers présents dans le jeu, vous trouverez deux fichiers csv correspondant à 2 niveaux de difficultés. 
 
-### *AMUSEZ VOUS BIEN*
+### *AMUSEZ VOUS BIEN et DEFIEZ VOUS ENTRE AMIS POUR VOIR QUI ECRIS PLUS VITE QUE SON OMBRE*
+
